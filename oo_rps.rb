@@ -48,7 +48,7 @@ class PlayGame
       player.print_choice
       computer.print_choice
       print_winning_choice(self.winning_choice?)
-      self.print_winning_message
+      self.print_winner_message
       self.play_again?
     end
   end
@@ -86,27 +86,10 @@ class PlayGame
     elsif winner == "scissors"
       puts "Scissors cuts paper!"
     elsif winner == "rock"
-      puts "Rocks covers paper!"
+      puts "Rocks crushes scissors!"
     end
   end
 end
 
 game = PlayGame.new
 game.play
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-
