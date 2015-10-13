@@ -1,18 +1,17 @@
 class Player
   attr_accessor :name, :choice
-  @@choices = ['paper', 'scissors', 'rock']
+  CHOICES = ['paper', 'scissors', 'rock']
   
   def initialize
     puts "Enter your name:"
     @name = gets.chomp
-    @choice = ''
   end
   
   def make_choice
     begin
       puts "Hello #{name}, Please enter - Paper, Scissors or Rock?"
       self.choice = gets.chomp.downcase
-    end until @@choices.include?(self.choice)
+    end until CHOICES.include?(self.choice)
   end
 
   def print_choice
@@ -23,15 +22,14 @@ end
 class Computer < Player
   def initialize
     @name = 'computer'
-    @choice = ''
   end
   
   def make_choice
-    self.choice = @@choices.sample
+    self.choice = CHOICES.sample
   end
 end
 
-class PlayGame
+class Game
   attr_accessor :player, :computer, :play_again
   
   def initialize
@@ -47,9 +45,9 @@ class PlayGame
       computer.make_choice
       player.print_choice
       computer.print_choice
-      print_winning_choice(self.winning_choice?)
-      self.print_winner_message
-      self.play_again?
+      print_winning_choice(winning_choice?)
+      print_winner_message
+      play_again?
     end
   end
     
@@ -91,5 +89,4 @@ class PlayGame
   end
 end
 
-game = PlayGame.new
-game.play
+Game.new.play
